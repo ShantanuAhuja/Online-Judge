@@ -1,4 +1,4 @@
-Authentication Overview
+<h1>Authentication Overview</h1>
 This project implements a secure authentication system using Django's built-in authentication tools. The system supports the following features:
 
 Signup
