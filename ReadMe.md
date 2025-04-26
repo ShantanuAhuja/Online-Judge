@@ -144,7 +144,7 @@ This project was built to learn and implement:
 
 ## 👤 **Authored & Maintained By**
 
-- 💻 [Your Name or Username]
+- 💻 [Shantanu Ahuja]
 - 🛠 **Tech Stack**: Python, Django, SQLite/PostgreSQL, HTML/CSS, Bootstrap
 
 ---
