@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left-Aligned Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    {% include 'navbar.html' %} 
+
+    <main class="flex-grow w-full px-6 py-4">
+
+        <!-- Language Selection Box -->
+    
+        <div class="mb-6 p-4 border border-gray-300 bg-white rounded-md shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-700">Selected Language:</h3>
+            <p class="mt-2 text-gray-800">{{ submission.language }}</p>
+        </div>
+
+        <!-- Code Editor Box -->
+        <div class="mb-6 p-4 border border-gray-300 bg-white rounded-md shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-700">Your Code:</h3>
+            <pre class="mt-2 text-gray-800 p-4 bg-gray-200 rounded-md">{{ file_content}}</pre>
+        </div>
+
+        <!-- Test Case Box -->
+        <div class="mb-6 p-4 border border-gray-300 bg-white rounded-md shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-700">Timestamp:</h3>
+            <pre class="mt-2 text-gray-800 p-4 bg-gray-200 rounded-md">{{submission.timestamp }}</pre>
+        </div>
+
+        <!-- Output Box -->
+        <div class="p-4 border border-gray-300 bg-white rounded-md shadow-sm">
+            <div class="p-6 bg-white rounded-lg shadow-md border border-gray-300 space-y-4">
+                <h3 class="text-lg font-semibold text-gray-800">Verdict:</h3>
+                <pre class="mt-2 text-gray-800 p-4 bg-gray-200 rounded-md">{{submission.verdict}}</pre>
+                
+                <!-- Output Value Display -->
+
+            </div>
+
+    </main>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

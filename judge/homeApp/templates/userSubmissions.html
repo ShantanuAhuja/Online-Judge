@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Submissions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    {% include 'navbar.html' %} 
+    
+    <main class="flex-grow w-full px-6 py-4">
+        <h1 class="text-2xl font-bold mb-4">User Submissions</h1>
+
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full bg-white shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">Problem Name</th>
+                        <th class="px-4 py-2 text-left">Language</th>
+                        <th class="px-4 py-2 text-left">Verdict</th>
+                        <th class="px-4 py-2 text-left">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in submissions %}
+                    <tr class="border-b 
+                        {% if submission.verdict == 'Accepted' %}
+                            bg-green-100
+                        {% else %}
+                            bg-red-100
+                        {% endif %}
+                    ">
+                        <td class="px-4 py-2">
+                            <a href="/user/submission/{{ submission.id }}/" class="text-blue-600 hover:underline">
+                                {{ submission.ProblemName }}
+                            </a>
+                            
+                        </td>
+                        <td class="px-4 py-2">{{ submission.language }}</td>
+                        <td class="px-4 py-2 
+                            {% if submission.verdict == 'Accepted' %}
+                                text-green-800
+                            {% else %}
+                                text-red-800
+                            {% endif %}
+                        ">
+                            {{ submission.verdict }}
+                        </td>
+                        <td class="px-4 py-2">{{ submission.timestamp }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="px-4 py-2 text-center text-gray-500">No submissions found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            
+            </table>
+        </div>
+    </main>
+
+    {% include 'footer.html' %} 
+</body>
+</html>

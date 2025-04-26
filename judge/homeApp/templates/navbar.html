@@ -1,0 +1,78 @@
+<nav class="flex items-center px-6 py-4 border-b bg-white shadow">
+    <!-- Logo & Menu Container -->
+    <div class="flex items-center space-x-8">
+        {% load static %}
+        <a href="/home"><img src="{% static 'images/software.png' %}" alt="Logo" class="h-10 w-auto"></a>
+
+        <!-- Menu Items -->
+        <ul class="flex items-center space-x-6">
+
+            <li>
+                <a href="/problems/" 
+                   class="text-black font-medium px-3 py-2 rounded-md 
+                   hover:bg-blue-100 transition duration-300 
+                   {% if request.path == '/problems/' %} bg-blue-200 font-bold {% endif %}">
+                   Problems
+                </a>
+            </li>
+
+            
+            <li>
+                <a href="/contests/" 
+                   class="text-black font-medium px-3 py-2 rounded-md 
+                   hover:bg-blue-100 transition duration-300 
+                   {% if request.path == '/contests/' %} bg-blue-200 font-bold {% endif %}">
+                   Contests
+                </a>
+            </li>
+
+            <li>
+                <a href="/user/leaderboard/" 
+                   class="text-black font-medium px-3 py-2 rounded-md 
+                   hover:bg-blue-100 transition duration-300 
+                   {% if request.path == '/user/leaderboard/' %} bg-blue-200 font-bold {% endif %}">
+                   LeaderBoard
+                </a>
+            </li>
+            
+            {% if request.user.is_authenticated %}
+            <li>
+                <a href="/user/submission/" 
+                   class="text-black font-medium px-3 py-2 rounded-md 
+                   hover:bg-blue-100 transition duration-300 
+                   {% if request.path == '/user/submission/' %} bg-blue-200 font-bold {% endif %}">
+                   My Submissions
+                </a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </div>
+
+    <!-- Right Section -->
+    <ul class="flex items-center space-x-4 ml-auto">
+        {% if request.user.is_authenticated %}
+            <li>
+                <span class="text-black font-medium px-3 py-2 rounded-md">
+                    Welcome, {{ request.user.username }}!
+                </span>
+            </li>
+            <li>
+                <a href="/auth/logout" class="text-black font-medium hover:bg-blue-100 px-3 py-2 rounded-md transition duration-300">
+                    Logout
+                </a>
+            </li>
+        {% else %}
+            <li>
+                <a href="/auth/login" class="text-black font-medium hover:bg-blue-100 px-3 py-2 rounded-md transition duration-300">
+                    Login
+                </a>
+            </li>
+            <li>
+                <a href="/auth/signup" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                    SignUp
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

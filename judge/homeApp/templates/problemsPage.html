@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Navbar UI</title>
+</head>
+<body class="bg-gray-100 flex flex-col  min-h-screen">
+    {% include 'navbar.html' %} 
+
+    <main class="flex-grow w-full px-6 py-4">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Practice Problems</h1>
+
+    <ul class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden divide-y divide-gray-300">
+        {% for problem in problems %}
+            <li class="p-4 hover:bg-pink-100 transition duration-300">
+                <a href="/problems/{{ problem.name }}/" class="flex items-center space-x-3 text-gray-800 hover:text-pink-600 font-semibold">
+                    <!-- Icon -->
+                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <!-- Problem Name -->
+                    <span>{{ problem.name }}</span>
+                </a>
+            </li>
+        {% empty %}
+            <li class="p-4 text-gray-500 text-center">No problems available.</li>
+        {% endfor %}
+    </ul>
+    </main>
+
+    {% include 'footer.html' %} 
+</body>
+</html>

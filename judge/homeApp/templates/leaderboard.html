@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Ranking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    {% include 'navbar.html' %} 
+    
+    <main class="flex-grow w-full px-6 py-4">
+        <div class="container mx-auto px-6 py-4 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Leaderboard Ranking</h2>
+        
+            <table class="min-w-full table-auto border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200 text-lg font-bold text-gray-800">
+                        <th class="px-6 py-4 text-left border border-gray-300 w-1/6">Rank</th>
+                        <th class="px-6 py-4 text-left border border-gray-300 w-1/3">User</th>
+                        <th class="px-6 py-4 text-left border border-gray-300 w-1/3">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user, score in user_map.items %}
+                        <tr class="border-b {% cycle 'bg-gray-100' 'bg-white' %}">
+                            <td class="px-6 py-3 text-gray-700 border border-gray-300 text-lg font-semibold">{{ forloop.counter }}</td>
+                            <td class="px-6 py-3 text-gray-700 border border-gray-300 text-lg">{{ user }}</td>
+                            <td class="px-6 py-3 text-gray-700 border border-gray-300 text-lg">{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    {% include 'footer.html' %} 
+
+</body>
+</html>

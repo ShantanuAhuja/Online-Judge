@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left-Aligned Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    {% include 'navbar.html' %}
+
+    <main class="flex-grow">
+    
+      <!-- Hero Section -->
+      <section class="bg-indigo-600 text-white py-20">
+        <div class="container mx-auto text-center px-6">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to CodeArena</h1>
+          <p class="text-lg md:text-xl mb-6">Your platform to practice, compete, and master coding skills.</p>
+          <a href="/problems" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+            Explore Problems
+          </a>
+        </div>
+      </section>
+    
+      <!-- Main Content with Image -->
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
+          
+          <!-- Text Content -->
+          <div class="md:w-1/2">
+            <h2 class="text-3xl font-bold mb-4">Why Choose CodeArena?</h2>
+            <p class="text-gray-700 mb-6">CodeArena provides a seamless environment for beginners and professionals to practice data structures, algorithms, and participate in real-time contests. Our fast judging engine and rich problem set keep you engaged and improving.</p>
+            <a href="/auth/signup" class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition">
+              Get Started
+            </a>
+          </div>
+    
+          <!-- Image -->
+          <div class="md:w-1/2">
+            {% load static %}
+            <img src="{% static 'images/homePage.avif' %}" alt="Logo" class="w-full max-w-md md:max-w-lg lg:max-w-xl rounded shadow" />
+          </div>
+    
+        </div>
+      </section>
+
+      <!-- Contest Section -->
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6 text-indigo-700">Compete in Live Contests</h2>
+    <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+      Test your skills in real-time coding contests hosted regularly. Compete with developers around the world, track your rankings, and win exciting rewards.
+    </p>
+    <a href="/contests" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition">
+      View Contests
+    </a>
+  </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6 text-indigo-700">Connect with the Problem Adder</h2>
+    <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+      Follow on coding platforms and social media for updates, new problems, and contributions.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-6">
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/shantanu2904/" target="_blank" class="flex items-center space-x-2 bg-white px-5 py-3 rounded shadow hover:bg-gray-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-6 h-6">
+        <span class="text-indigo-700 font-medium">LinkedIn</span>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/ShantanuAhuja" target="_blank" class="flex items-center space-x-2 bg-white px-5 py-3 rounded shadow hover:bg-gray-100 transition">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-6 h-6">
+        <span class="text-gray-800 font-medium">GitHub</span>
+      </a>
+
+      <!-- LeetCode -->
+      <a href="https://leetcode.com/u/cheekoo_29/" target="_blank" class="flex items-center space-x-2 bg-white px-5 py-3 rounded shadow hover:bg-gray-100 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="w-6 h-6">
+        <span class="text-yellow-600 font-medium">LeetCode</span>
+      </a>
+
+      <!-- GeeksforGeeks -->
+      
+
+    </div>
+  </div>
+</section>
+    </main>
+    
+    {% include 'footer.html' %}
+    
+
+</body>
+</html>
